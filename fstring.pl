@@ -33,7 +33,7 @@ my @test = (
     'max(8, $y) = $max(8, $y)',
     'max(min(3,4),2)=$max($min(3,4),2)',
     '$max($min(3, 4), $min(10, 20))',
-    'example $$ $pi $sum($min(1, 2), $max(3, 4), 5); $max(100, 200)! $max($pi, 4) $max(3, $min($pi, 5))',
+    'example $$ $pi $sum($min($min(1, 3), 2), $max(3, 4), 5); $max(100, 200)! $max($pi, 4) $max(3, $min($pi, 5))',
 );
 
 say parse($_) for @test;
