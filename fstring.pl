@@ -86,7 +86,7 @@ sub parse {
     my ($processed, $not_processed) = subparse($after);
     my $ret = $before . $processed;
     
-    $ret .= parse($not_processed, $ret) if $not_processed;
+    $ret .= parse($not_processed) if $not_processed;
     
     return $ret;
 }
@@ -99,7 +99,7 @@ sub subparse {
     given($string) {
         ($ret, $rest) = subparse_escape($string)  when /^\$/;
         ($ret, $rest) = subparse_function($1, $2) when /^([a-zA-Z0-9_-]+)(\(.*)$/;
-        ($ret, $rest) = subparse_variable($1, $2) when  /^([a-zA-Z0-9_-]+)(.*)$/;
+        ($ret, $rest) = subparse_variable($1, $2) when /^([a-zA-Z0-9_-]+)(.*)$/;
         ($ret, $rest) = ($string, '');
     }
     
