@@ -2,21 +2,18 @@ This is a simple ad hoc parser for string templates with variables and nested fu
 
 Basically, the list of test strings give an idea of what it can do.
 
- 'x + y = $plus($x, $y)',
- 'x - y = $minus($x, $y)',
- '10 - 7 = $minus(10, 7)',
- 'max(9, 7) = $max(9, 7)',
- 'max(x, y) = $max($x, $y)',
- 'max(8, $y) = $max(8, $y)',
- 'max(min(3,4),2)=$max($min(3,4),2)',
- '$max($min(3, 4), $min(10, 20))',
- 'example $$ $pi $sum($min(1, 2), $max(3, 4), 5); $max(100, 200)! $max($pi, 4) $max(3, $min($pi, 5))',
+ x + y = $plus($x, $y)
+ x - y = $minus($x, $y)
+ 10 - 7 = $minus(10, 7)
+ max(9, 7) = $max(9, 7)
+ max(x, y) = $max($x, $y)
+ max(8, $y) = $max(8, $y)
+ max(min(3,4),2)=$max($min(3,4),2)
+ $max($min(3, 4), $min(10, 20))
+ $sum($min(1, 2), $max(3, 4), 5); $max(3, $min($pi, 5))
 
-All the template-related stuff begins with a dollar sign (the dollar itself is escaped as $$).
-Variables go as is, like $x or $y. Functions are also prefixed with a dollar as in $max(3, 14).
+All the template-related stuff begins with a dollar sign (the dollar itself is escaped as $$). Variables go as is, like $x or $y. Functions are also prefixed with a dollar as in $max(3, 14).
 
-There's no math or whatever operations but it is possible (and it was the main goal of fstring)
-to use other function calls from within a function call. Thus any reasonable function enclosing
-sequence should be valid. For example: $max($min(1, 2), $min(3, 4)).
+There's no math or whatever operations but it is possible (and it was the main goal of fstring) to use other function calls from within a function call. Thus any reasonable function enclosing sequence should be valid. For example: $max($min(1, 2), $min(3, 4)).
 
 Note that it's only an ad hoc script placed on github for being backuped :-)
